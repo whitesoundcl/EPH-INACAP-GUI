@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bulma/bulma.css">
+    <link rel="stylesheet" href="../node_modules/bulma-accordion/dist/css/bulma-accordion.min.css">
+</head>
+
+<body>
+
+    <!--Modal de inicio del programa.-->
+    <div class="modal is-active" id="modalInicio">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Bienvenido</p>
+                <button class="delete" aria-label="close" id="btnCerrarModal"></button>
+            </header>
+            <section class="modal-card-body">
+                <p>Para que puedas ver tu horario de INACAP en esta aplicación, primero hay que descargarlo.</p>
+                <p>Sigue los pasos que se te indicarán a continuación.</p>
+                <p>Si tienes dudas puedes escribirle al desarrollador al correo <strong>whitesoundcl@outlook.es</strong></p>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" id="btnContinuarModal">Continuar</button>
+            </footer>
+        </div>
+    </div>
+
+    <!--Modal de descarga existosa.-->
+    <div class="modal" id="modalDescargaExitosa">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">¡Todo listo!</p>
+            </header>
+            <section class="modal-card-body">
+                <p>¡Tu horario se ha descargado exitósamente!</p>
+                <p><strong>Sin embargo hay algo que debes tener en cuenta:</strong></p>
+                <p>Lo que se ha descargado es una <strong>copia</strong> de tu horario <strong>a la fecha</strong>. </p>
+                <br>
+                <p>
+                    Por ende, cualquier modificación a este
+                    <strong>(Incluyendo nuevas evaluaciones, clases suspendidas, recuperación de clases, cambio de
+                        sala, etc)</strong>,
+                    realizada después de esta descarga <strong>No lo podras ver</strong>.</p>
+                <p>Es por esto que te recomiendo realizar este proceso cada 2 o 3 semanas, o incluso
+                    cada 1 mes. De esta forma tendrás tu horario actualizado.</p>
+                <P>¡Espero que encuentres esta aplicación muy útil!</P>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" id="btnContinuarModalDescarga">¡Entendido!</button>
+            </footer>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+
+        </div>
+        <div class="column is-four-fifths">
+            <label class="label">Ingresa tu SESI_CCOD:</label>
+            <div class="columns">
+                <div class="column">
+                    <div class="control" id="sesiInputControl">
+                        <input class="input is-info is-rounded" type="text" placeholder="SESI_CCOD" id="sesiInput">
+                        <p class="help is-success" id="sesiAviso"></p>
+                    </div>
+                </div>
+                <div class="column is-2">
+                    <a class="button is-primary" id="btnAceptarSesi">Aceptar</a>
+                </div>
+            </div>
+            <br>
+            <!-- Implementación del acordion-->
+            <section class="accordions">
+
+                <article class="accordion is-active">
+                    <div class="accordion-header">
+                        <p>¿Que es el SESI_CCOD?</p>
+                        <button class="toggle" aria-label="toggle"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p class="">
+                                SESI_CCOD es el <strong>código de tu sesión actual</strong>.
+
+                            </p>
+                            <p class="">
+                                Cada vez que inicias sesión en la página web de la universidad se genera un nuevo
+                                código el cual es
+                                <strong>completamente aleatorio</strong> y
+                                <strong>temporal</strong>.
+                            </p>
+                            <p class="">
+                                Este código se puede utilizar para extraer tu horario, almacenarlo en un archivo local
+                                y
+                                visualizarlo.
+
+                            </p>
+                            <p>Es importante recalcar que este <strong> no es un programa oficial ni auspiciado por
+                                    INACAP</strong>
+                                y
+                                fue desarrollado por un estudiante que deseaba ver su horario de forma más comoda. </p>
+                        </div>
+                    </div>
+                </article>
+                <article class="accordion">
+                    <div class="accordion-header">
+                        <p>¿Y cómo lo obtengo?</p>
+                        <button class="toggle" aria-label="toggle"></button>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p>
+                                para obtener el <strong>SESI_CCOD</strong> debes ingresar a tu intranet y hacer click
+                                en el link '<strong>Mi
+                                    horario</strong>'
+                                Que se encuentra ubicado en la parte de abajo a la izquierda de la página en la sección
+                                de <strong>Información
+                                    academica.</strong>
+                            </p>
+                            <p>Luego, desde la url debes copiar el código que aparece al final de esta, justamente
+                                después de
+                                <strong>SESI_CCOD</strong>
+
+                            </p>
+                            <img src="img/link_horario.png" alt="" srcset="">
+                            <p>Luego lo pegas en la barra de más arriba.</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!--Original (Por defecto no se muestra)-->
+            <div style="display : none">
+                <p><strong>¿Que es el SESI_CCOD?</strong></p>
+                <div class="notification">
+                    <p class="">
+                        SESI_CCOD es el <strong>código de tu sesión actual</strong>.
+
+                    </p>
+                    <p class="">
+                        Cada vez que inicias sesión en la página web de la universidad se genera un nuevo código el
+                        cual es
+                        <strong>completamente aleatorio</strong> y
+                        <strong>temporal</strong>.
+                    </p>
+                    <p class="">
+                        Este código se puede utilizar para extraer tu horario, almacenarlo en un archivo local y
+                        visualizarlo.
+
+                    </p>
+                    <p>Es importante recalcar que este <strong> no es un programa oficial ni auspiciado por INACAP</strong>
+                        y
+                        fue desarrollado por un estudiante que deseaba ver su horario de forma más comoda. </p>
+                </div>
+
+                <p><strong>¿Y cómo lo obtengo?</strong></p>
+                <div class="notification">
+                    <p>
+                        para obtener el <strong>SESI_CCOD</strong> debes ingresar a tu intranet y hacer click en el
+                        link '<strong>Mi
+                            horario</strong>'
+                        Que se encuentra ubicado en la parte de abajo a la izquierda de la página en la sección de
+                        <strong>Información
+                            academica.</strong>
+                    </p>
+                    <p>Luego, desde la url debes copiar el código que aparece al final de esta, justamente después de
+                        <strong>SESI_CCOD</strong>
+
+                    </p>
+                    <img src="img/link_horario.png" alt="" srcset="">
+                    <p>Luego lo pegas en la barra de más arriba.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="column">
+
+        </div>
+    </div>
+    <script src="js/reloadCache.js"></script>
+</body>
+
+</html>

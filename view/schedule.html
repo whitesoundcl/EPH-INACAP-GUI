@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bulma/bulma.css">
+    <link rel="stylesheet" href="fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/jquery-theme.css">
+
+</head>
+
+<body>
+    <div class="modal" id="modalCrearRecordatorio">
+        <div class="modal-background" id="modalBackgroundCrearRecordatorio"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modalCrearRecordatorioTitulo">Crear recordatorio para: </p>
+                <button class="delete" aria-label="close" id="btnCerrarModalRecordatorio"></button>
+            </header>
+            <section class="modal-card-body">
+
+                <p>¿De qué te recuerdo?</p>
+                <textarea class="textarea" id="areaTextoRecordatorio" placeholder="Ejemplo: Llevar 3 huevos para cálculo."></textarea>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" id="btnAceptarRecordatorio">Aceptar</button>
+            </footer>
+        </div>
+    </div>
+    <div class="modal" id="modalInfoAsignatura">
+        <div class="modal-background" id="modalBackgroundInfoAsignatura"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title" id="modalTitulo">NOMBRE ASIGNATURA</p>
+                <button class="delete" aria-label="close" id="btnCerrarInfoAsignatura"></button>
+            </header>
+            <section class="modal-card-body">
+
+                <p id="textoSala"></p>
+                <p id="textoProfesor"></p>
+                <p id="textoSeccion"></p>
+                <p id="textoTipoEvaluacion"></p>
+                <p id="textoHoras"></p>
+                <p id="textoPorcentaje"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" id="btnAbrirCrearRecordatorio">Crear recordatorio </button>
+            </footer>
+        </div>
+    </div>
+    <!-- Navbar test -->
+    <div class="contenedorBotones">
+        <div class="columns is-gapless is-mobile">
+            <div class="column is-one-fifth-mobile is-one-fifth-tablet">
+                <h4 class="is-size-4 nombreApp">EPHI-GUI</h4><small>BETA</small>
+
+            </div>
+            <div class="column  is-two-fifths-mobile is-two-fifths-tablet has-addons">
+                <a class="button boton is-small is-outlined" id="btnConfig">Configuración</a>
+                <a class="button boton is-small " id="btnSemana">Semana</a>
+                <a class="button boton is-small  is-outlined" id="btnMes">Mes</a>
+                <a class="button boton is-small  is-outlined" id="btnHoy">Hoy</a>
+            </div>
+
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <a class="button boton is-small  is-outlined" id="btnPrevio">Previo</a>
+                <p id="textoTitulo" class="has-white-text titulo"></p>
+                <a class="button boton is-small  is-outlined" , id="btnSiguiente">Siguiente</a>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar test-->
+    <div id="calendar"></div>
+
+    <!-- Configuraciones -->
+    <div id="configuraciones">
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <div class="container is-fluid">
+                    <p>Color de los botones</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select">
+                    <select id="selectColor">
+                        <option value="is-primary" style="background: hsl(171, 100%, 41%);">Cyan</option>
+                        <option value="is-danger" style="background: hsl(348, 100%, 61%);">Rojo</option>
+                        <option value="is-info" style="background: hsl(204, 86%, 53%);">Azul</option>
+                        <option value="is-success" style="background: hsl(141, 71%,  48%);">Verde</option>
+                        <option value="is-warning" style="background: hsl(48,  100%, 67%);">Amarillo</option>
+                        <option value="is-white" style="background: hsl(0, 0%, 100%);">Blanco</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <div class="container is-fluid">
+                    <p>Color de las clases normales</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select">
+                    <select id="selectColorClases">
+                        <option value="is-primary" style="background: hsl(171, 100%, 41%);">Cyan</option>
+                        <option value="is-danger" style="background: hsl(348, 100%, 61%);">Rojo</option>
+                        <option value="is-info" style="background: hsl(204, 86%, 53%);">Azul</option>
+                        <option value="is-success" style="background: hsl(141, 71%,  48%);">Verde</option>
+                        <option value="is-warning" style="background: hsl(48,  100%, 67%);">Amarillo</option>
+                        <option value="is-white" style="background: hsl(0, 0%, 100%);">Blanco</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <div class="container is-fluid">
+                    <p>Color del texto de las clases normales</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select">
+                    <select id="selectColorTexto">
+                        <option value="blanco">Blanco</option>
+                        <option value="negro">Negro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <div class="container is-fluid">
+                    <p>Color de las clases con evaluación</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select">
+                    <select id="selectColorEvaluaciones">
+                        <option value="is-primary" style="background: hsl(171, 100%, 41%);">Cyan</option>
+                        <option value="is-danger" style="background: hsl(348, 100%, 61%);">Rojo</option>
+                        <option value="is-info" style="background: hsl(204, 86%, 53%);">Azul</option>
+                        <option value="is-success" style="background: hsl(141, 71%,  48%);">Verde</option>
+                        <option value="is-warning" style="background: hsl(48,  100%, 67%);">Amarillo</option>
+                        <option value="is-white" style="background: hsl(0, 0%, 100%);">Blanco</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                <div class="container is-fluid">
+                    <p>Color del texto de las clases con evaluación</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="select">
+                    <select id="selectColorTextoEvaluacion">
+                        <option value="blanco">Blanco</option>
+                        <option value="negro">Negro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                ¿Crees que el horario está muy desactualizado?
+
+            </div>
+            <div class="column">
+                <a class="button boton  is-outlined" id="btnActualizarHorario">Actualizar horario</a>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                ¿Ocurrió un problema al descargar el horario actualizado?
+            </div>
+            <div class="column">
+                <a class="button boton  is-outlined" id="btnRestablecerHorario">Restablecer a versión anterior</a>
+            </div>
+        </div>
+        <hr>
+        <div class="columns is-mobile has-text-white">
+            <div class="column is-1"></div>
+            <div class="column is-two-fifths-mobile is-two-fifths-tablet">
+                Notificación de clase próxima
+            </div>
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="question">
+                            Si, porfavor.
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="question">
+                            No, no me interesa.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/schedule.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/recordatorio.js"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "horario-comp",
+  "version": "1.0.0",
+  "description": "Te permite revisar tu horario de forma offline, además de incluir los recordatorios en el escritorio.",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Luis Clavijo Fuentes (WhitesoundCL)",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.9"
+  },
+  "dependencies": {
+    "bulma-accordion": "^2.0.0",
+    "fullcalendar": "3.10.0",
+    "jquery": "^3.3.1",
+    "moment": "2.24.0"
+  }
+}
