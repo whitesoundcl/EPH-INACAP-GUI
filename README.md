@@ -1,3 +1,5 @@
+##debido a los ultimos cambios en la plataforma de inacap, el programa como está, no funcionará.
+
 # EPH-INACAP-GUI
 Esta aplicación te permite revisar tu horario de INACAP de forma offline. 
 
