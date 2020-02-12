@@ -1,4 +1,6 @@
-## debido a los ultimos cambios en la plataforma de inacap, el programa como está, no funcionará.
+# importante
++ Inacap realizó unos cambios a la plataforma que no permiten obtener de inmediato todo el horario, hay que agregar lógica adicional.
++ Ya no me puedo hacer cargo del proyecto directamente debido a que he egresado y nunca más tendré un horario asignado. Si alguien se motiva, puede continuar dónde lo dejé e incluso mejorarlo mediante pull requests o directamente forkeando el proyecto. 
 
 # EPH-INACAP-GUI
 Esta aplicación te permite revisar tu horario de INACAP de forma offline. 
