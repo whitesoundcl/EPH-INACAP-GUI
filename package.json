@@ -9,7 +9,7 @@
   "author": "Luis Clavijo Fuentes (WhitesoundCL)",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^2.0.9"
+    "electron": "^9.1.0"
   },
   "dependencies": {
     "bulma-accordion": "^2.0.0",
